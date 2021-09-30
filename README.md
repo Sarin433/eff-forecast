@@ -1,4 +1,4 @@
-﻿# This is the forecasting webapp for MaeNgat and MaeKuang
+﻿# This is the forecasting water effluent webapp of MaeNgat and MaeKuang
  ### Python library ###
  - streamlit
  - fbprophet
