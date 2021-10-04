@@ -109,6 +109,7 @@ def monthly_plot():
     fig.layout.update(xaxis_rangeslider_visible=True)
     st.plotly_chart(fig)
 
+### Web Template ###
 st.subheader('กราฟแสดงการพยากรณ์น้ำออกรายเดือน')
 monthly_plot()
 st.subheader('กราฟแสดงส่วนประกอบต่างๆ (เทรน, การเปลี่ยนแปลงรายปี, การเปลี่ยนแปลงรายสัปดาห์)')
@@ -136,3 +137,4 @@ with col2:
             b64 = base64.b64encode(export_forecast.encode()).decode()
             href = f'<a href="data:file/csv;base64,{b64}">Download CSV File</a> (click Download > ตั้งชื่อไฟล์ **forecast.csv**)'
             st.markdown(href, unsafe_allow_html=True)
+#===============================================================================================================================
