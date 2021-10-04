@@ -5,6 +5,7 @@
  - pandas
  - numpy
  - plotly
+*listlib.txt
 
 # Run the webapp
 - Open webapp.py in you Python ide
