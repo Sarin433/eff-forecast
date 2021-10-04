@@ -116,7 +116,7 @@ st.subheader('กราฟแสดงส่วนประกอบต่าง
 st.write(fig2)
 st.subheader('ตารางแสดงผลของการพยากรณ์น้ำออกรายเดือน')
 st.write(dt.tail(24))
-st.subheader('ดาวน์โหลดตารางพยากรณ์น้ำออกรายเดือน')
+st.subheader('ดาวน์โหลดตารางข้อมูลพยากรณ์น้ำออกรายเดือน')
 col1, col2 = st.columns(2)
 with col1:
     if st.button('ตารางน้ำที่ถูกระบายรายเดือน(.csv)'):
