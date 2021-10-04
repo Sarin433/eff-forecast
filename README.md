@@ -6,10 +6,11 @@
  - numpy
  - plotly
 
-#Run the webapp
+# Run the webapp
 - open webapp.py in you Python ide
 - in Terminal: streamlit run webapp.py 
 - Enjoy!!!
+
 *Note you must have python library
 
 # Reference
