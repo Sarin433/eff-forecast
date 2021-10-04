@@ -7,8 +7,8 @@
  - plotly
 
 # Run the webapp
-- open webapp.py in you Python ide
-- in Terminal: streamlit run webapp.py 
+- Open webapp.py in you Python ide
+- In Terminal: streamlit run webapp.py 
 - Enjoy!!!
 
 *Note you must have python library
