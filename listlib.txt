@@ -1,0 +1,7 @@
+#Please check your pip is updated version and python version>=3.6
+#Library of Python for webapp.py
+pip install pandas
+pip install numpy
+pip install streamlit
+pip install prophet
+pip install plotly
