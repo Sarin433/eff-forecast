@@ -84,38 +84,38 @@ forecast = model.predict(future)
 forecast["yhat"] = np.where(forecast["yhat"]<0,min(df_train['y']),forecast["yhat"])
 
 ### Daily Forecast ###
-st.subheader('การพยากรณ์น้ำระบายรายวัน')
+#st.subheader('การพยากรณ์น้ำระบายรายวัน')
 daily_forecast = forecast
 daily_forecast = daily_forecast.rename(columns={'ds':'วันที่', 'yhat':'ค่าพยากรณ์', 'yhat_lower':'ค่าต่ำสุด', 'yhat_upper':'ค่าสูงสุด'})
-st.write('ตารางแสดงผลการพยากรณ์น้ำระบายรายวัน')
-st.write(daily_forecast[['วันที่', 'ค่าพยากรณ์', 'ค่าต่ำสุด', 'ค่าสูงสุด']].tail(730))
+# st.write('ตารางแสดงผลการพยากรณ์น้ำระบายรายวัน')
+# st.write(daily_forecast[['วันที่', 'ค่าพยากรณ์', 'ค่าต่ำสุด', 'ค่าสูงสุด']].tail(730))
 
-st.write('กราฟแสดงผลของการพยากรณ์')
+# st.write('กราฟแสดงผลของการพยากรณ์')
 fig1 = plot_plotly(model, forecast)
-st.plotly_chart(fig1)
+# st.plotly_chart(fig1)
 
-st.write('กราฟแสดงส่วนประกอบต่างๆ (เทรน, การเปลี่ยนแปลงรายปี, การเปลี่ยนแปลงรายสัปดาห์)')
 fig2 = plot_components_plotly(model, forecast)
-st.write(fig2)
+
 
 ### Monthly Operation ###
-st.subheader('การพยากรณ์น้ำที่ถูกระบายรายเดือน')
-st.text('ตารางแสดงผลของการพยากรณ์น้ำที่ถูกระบายรายเดือน')
-
 dt = forecast[['ds','yhat']]
 dt = dt.rename(columns={'ds':'วันที่', 'yhat':'ปริมาณน้ำที่ถูกระบาย (ลูกบาศก์เมตร)'})
 dt = dt.set_index('วันที่').groupby(pd.Grouper(freq='M'))['ปริมาณน้ำที่ถูกระบาย (ลูกบาศก์เมตร)'].sum().reset_index()
-st.write(dt.tail(24))
 
 def monthly_plot():
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=dt['วันที่'], y=dt['ปริมาณน้ำที่ถูกระบาย (ลูกบาศก์เมตร)'],
                              name='Effluent of the dam'))
-    fig.layout.update(title_text='กราฟแสดงผลการพยากรณ์น้ำระบายรายเดือน', xaxis_rangeslider_visible=True)
+    fig.layout.update(xaxis_rangeslider_visible=True)
     st.plotly_chart(fig)
 
+st.subheader('กราฟแสดงการพยากรณ์น้ำออกรายเดือน')
 monthly_plot()
-
+st.subheader('กราฟแสดงส่วนประกอบต่างๆ (เทรน, การเปลี่ยนแปลงรายปี, การเปลี่ยนแปลงรายสัปดาห์)')
+st.write(fig2)
+st.subheader('ตารางแสดงผลของการพยากรณ์น้ำออกรายเดือน')
+st.write(dt.tail(24))
+st.subheader('ดาวน์โหลดตารางพยากรณ์น้ำออกรายเดือน')
 col1, col2 = st.columns(2)
 with col1:
     if st.button('ตารางน้ำที่ถูกระบายรายเดือน(.csv)'):
@@ -136,4 +136,3 @@ with col2:
             b64 = base64.b64encode(export_forecast.encode()).decode()
             href = f'<a href="data:file/csv;base64,{b64}">Download CSV File</a> (click Download > ตั้งชื่อไฟล์ **forecast.csv**)'
             st.markdown(href, unsafe_allow_html=True)
-
