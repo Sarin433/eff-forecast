@@ -1,9 +1,9 @@
 ﻿# Water Outflow Forecast Webapp
  ### Python library ###
  - streamlit
-  [(streamlit docs)](https://streamlit.io)
+ [(streamlit docs)](https://streamlit.io)
  - fbprophet
-  [(fbprophet docs)](https://facebook.github.io/prophet/)
+ [(fbprophet docs)](https://facebook.github.io/prophet/)
  - pandas
  - numpy
  - plotly
