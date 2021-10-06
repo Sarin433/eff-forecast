@@ -16,8 +16,8 @@
 *Note you must have python library
 
 # Maintainers
-sarin.thong01@gmail.com
+- sarin.thong01@gmail.com
 
 # Reference
 
-Taylor SJ, Letham B. 2017. Forecasting at scale. PeerJ Preprints 5:e3190v2 https://doi.org/10.7287/peerj.preprints.3190v2
+- Taylor SJ, Letham B. 2017. Forecasting at scale. PeerJ Preprints 5:e3190v2 https://doi.org/10.7287/peerj.preprints.3190v2
